@@ -29,4 +29,4 @@ const port = process.env.PORT || 3000
             break
     }
 })
-server.listen(port, () => console.log(`server started on port https://127.0.0.1:${port}; ` + 'press Ctrl-C to terminate....'))
+server.listen(port, () => console.log(`server started on port http://localhost:${port}; ` + 'press Ctrl-C to terminate....'))
