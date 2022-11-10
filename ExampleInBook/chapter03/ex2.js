@@ -1,30 +1,18 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
 const app = express()
-app.engine('handlebars', expressHandlebars({
+const path = require('path')
+app.engine('handlebars', expressHandlebars.engine({
     defaultLayout: 'main',
 }))
 app.set('view engine', 'handlebars')
 
-app.get('/', (req, res) => {
-    res.type('text/plain')
-    res.send('Meadowlark Travel');
-})
+app.use(express.static(__dirname + '/views'))
 
-app.get('/about', (req, res) => {
-    res.type('text/plain')
-    res.send('About Meadowlark Travel');
-})
-
-app.use((req, res) => {
-    res.type('text/plain');
-    res.status(404);
-    res.send('404 - not found');
-})
-
-app.use(express.static(__dirname + '/public'))
+const port = process.env.port || 3000
 
 app.get('/', (req, res) => res.render('home'))
+
 
 app.get('/about', (req, res) => res.render('about'))
 
