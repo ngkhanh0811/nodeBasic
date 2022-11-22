@@ -22,13 +22,22 @@ app.get('/', (req, res) => res.render('home'));
 app.get('/register', (req, res) => res.render('register'));
 
 app.post('/result', function(req, res, next) {
-    const {name, email} = req.body;
+    const {name, email, birthdate, classUser, registrationCode} = req.body;
 
     res.render("result", {
         title: "Thanks you for your information",
         name, 
         email,
+        birthdate,
+        classUser,
+        registrationCode
     });
+
+    console.log(name)
+    console.log(email)
+    console.log(birthdate)
+    console.log(classUser)
+    console.log(registrationCode)
 });
 
 
